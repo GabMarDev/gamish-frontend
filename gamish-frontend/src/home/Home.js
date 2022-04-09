@@ -1,9 +1,11 @@
 import React from "react"
 
 function Home({setPage}) {
+
     function HandlePageToLogin() {
         setPage('Login')
     }
+    
     return (
         <div>
             <header>
