@@ -5,11 +5,12 @@ import Login from "./login/Login.js"
 function App() {
 
   const [page, setPage] = useState('Home')
+  const [user, setUser] = useState({})
 
   return (
     <div>
-      {page === "Home" && <Home setPage = {setPage}/>}
-      {page === "Login" && <Login setPage = {setPage} />} 
+      {page === "Home" && <Home setPage = {setPage} user = {user} setUser = {setUser}/>}
+      {page === "Login" && <Login setPage = {setPage} setUser = {setUser}/>} 
     </div>
   );
 }

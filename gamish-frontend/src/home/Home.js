@@ -1,19 +1,24 @@
 import React from "react"
 
-function Home({setPage}) {
+function Home({setPage, user, setUser}) {
 
     function HandlePageToLogin() {
         setPage('Login')
     }
-    
+
+    function HandlePageToLogoff() {
+        setUser({})
+    }
+
     return (
         <div>
             <header>
             <h1>Gamish</h1>
             <ul className="header">
-                <li className="cabecalho" onClick={HandlePageToLogin}>Login</li>
+                {Object.keys(user).length === 0 && <li className="cabecalho" onClick={HandlePageToLogin}>Login</li>}
                 <li className="cabecalho">Loja</li>
                 <li className="cabecalho">Sobre</li>
+                {Object.keys(user).length !== 0 && <li className="cabecalho" onClick={HandlePageToLogoff}>Deslogar</li>}
             </ul>
             </header>
             <div className="nav-bar">

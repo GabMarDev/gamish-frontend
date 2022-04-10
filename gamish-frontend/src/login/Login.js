@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import "./Login.css"
 import { gamishApi } from "../api/gamish_api"
 
-function Login({setPage}) {
+function Login({setPage, setUser}) {
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('') 
@@ -26,7 +26,13 @@ function Login({setPage}) {
         }
         await gamishApi.post('/Login', loginObject).then(
             (response) => {
-                console.log(response.data.status)
+                setUser(response.data) // Retorna, ID, username e status
+                setPage('Home')
+            }
+        )
+        .catch(
+            (response) => {
+                
             }
         )
     }
