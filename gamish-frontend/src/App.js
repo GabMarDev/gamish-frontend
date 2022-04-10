@@ -5,7 +5,7 @@ import Login from "./login/Login.js"
 function App() {
 
   const [page, setPage] = useState('Home')
-  
+
   return (
     <div>
       {page === "Home" && <Home setPage = {setPage}/>}

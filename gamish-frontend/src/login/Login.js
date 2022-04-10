@@ -1,4 +1,6 @@
 import React, { useState } from "react"
+import "./Login.css"
+import { gamishApi } from "../api/gamish_api"
 
 function Login({setPage}) {
 
@@ -17,22 +19,29 @@ function Login({setPage}) {
         setPassword(event.target.value)
     }
 
-    function HandleLogin() {
+    async function HandleLogin() {
         const loginObject = {
             username: username,
             password: password
         }
+        await gamishApi.post('/Login', loginObject).then(
+            (response) => {
+                console.log(response.data.status)
+            }
+        )
     }
 
     return(
-        <div>
-            <input type="button" value="Voltar" onClick={HandlePageToHome}/>
+        <div className="pgLogin">
+            <input type="button" value="Voltar" onClick={HandlePageToHome} className="btnVoltar"/>
+            <div className="container">
             <h1>Login</h1>
-            <label className="usuario" name="Usuario">Usuário</label>
-            <input type="text" placeholder="Usuário" onChange={HandleUsername}/> 
-            <label className="senha" name="Senha">Senha</label>
-            <input type="password" placeholder="Senha" onChange={HandlePassword}/>
-            <input type="button" value="Login" onClick={HandleLogin}/>
+                <label className="login" name="Usuario">Usuário</label>
+                <input type="text" className="campo" placeholder="Usuário" onChange={HandleUsername}/> 
+                <label className="login" name="Senha">Senha</label>
+                <input type="password" className="campo" placeholder="Senha" onChange={HandlePassword}/>
+                <input type="button" className="btnLogin" value="Login" onClick={HandleLogin}/>
+            </div>
         </div>
     )
 }
