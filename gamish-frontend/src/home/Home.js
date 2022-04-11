@@ -1,4 +1,5 @@
 import React from "react"
+import "./home.css" 
 
 function Home({setPage, user, setUser}) {
 
@@ -6,29 +7,23 @@ function Home({setPage, user, setUser}) {
         setPage('Login')
     }
 
-    function HandlePageToLogoff() {
+    function HandleLogoff() {
         setUser({})
     }
-
+    // Object.keys(user).length !== 0 Logado //
     return (
-        <div>
+        <div id="main">
             <header>
             <h1>Gamish</h1>
-            <ul className="header">
-                {Object.keys(user).length === 0 && <li className="cabecalho" onClick={HandlePageToLogin}>Login</li>}
-                <li className="cabecalho">Loja</li>
-                <li className="cabecalho">Sobre</li>
-                {Object.keys(user).length !== 0 && <li className="cabecalho" onClick={HandlePageToLogoff}>Deslogar</li>}
+            {Object.keys(user).length !== 0 && <span className="">Olá, {user.username}</span>}
+            {Object.keys(user).length !== 0 && <input type="button" className="" id="btnLogoff" onClick={HandleLogoff} value="Deslogar"></input>}
+            <ul className="nav">
+                {Object.keys(user).length === 0 && <li className="nav-itens" id="btnLogin" onClick={HandlePageToLogin}>Login</li>}
+                <li className="nav-itens" id="loja">Loja</li>
+                <li className="nav-itens" id="sobre">Sobre</li>
+                {Object.keys(user).length !== 0 && <li className="nav-itens" id="minhaBiblioteca">Minha Biblioteca</li>}
             </ul>
             </header>
-            <div className="nav-bar">
-            <hr />
-            <ul>
-                <li className="itens-nav-bar">Categorias</li>
-                <li className="itens-nav-bar">Notícias</li>
-                <li className="itens-nav-bar">A tua loja</li>
-            </ul>
-            </div> 
         </div>
     )
 }
