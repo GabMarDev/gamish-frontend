@@ -3,28 +3,12 @@ import { gamishApi } from "../api/gamish_api";
 
 function CreateNewUser() {
 
-    const [userExist, setUserExist] = useState(true)
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [email, setEmail] = useState('')
 
-    function teste(event) {
-        event.preventDefault()
-    }
-
-    async function HandleUsername(event) {
+    function HandleUsername(event) {
         setUsername(event.target.value)
-        if(username.length >= 5) {
-            await gamishApi.get(`/VerifyUser?login=${username}`).then(
-                (response) => {
-                    console.log(response.data)
-                    if(response.data.message == "Login já existe")
-                        setUserExist(true)
-                    else
-                        setUserExist(false)
-                }
-            )
-        }
     }
 
     function HandlePassword(event) {
@@ -35,27 +19,33 @@ function CreateNewUser() {
         setEmail(event.target.value)
     }
 
-    async function HandleLogin(event) {
+    async function HandleSubmit(event) {
         event.preventDefault()
-        const createLoginObj = {
+        const data = {
             username: username,
             password: password,
             email: email
         }
 
+        if(username !== '' && password !== '') {
+            const response = await gamishApi.post('/CreateUser', data)
+            //console.log(response)
+        }else{
+            alert('Por favor, preencha os campos solicitados!')
+        }
     }
 
     return (
         <div>
             <div>
-                <form onSubmit={HandleLogin} >
+                <form onSubmit={HandleSubmit}>
                     <label>Nome de usuário:</label>
-                    <input type="text" placeholder="* Nome de usuário" onChange={HandleUsername}></input>
+                    <input type="text" placeholder="*Nome de usuário" onChange={HandleUsername}></input>
                     <label>Senha:</label>
-                    <input type="password" placeholder="* Senha" onChange={HandlePassword}></input>
+                    <input type="password" placeholder="*Senha" onChange={HandlePassword}></input>
                     <label>E-mail:</label>
                     <input type="email" placeholder="E-mail" onChange={HandleEmail}></input>
-                    <button type="submit" disabled={userExist}>Criar</button>
+                    <button type="submit">Criar</button>
                 </form>
             </div>
         </div>
