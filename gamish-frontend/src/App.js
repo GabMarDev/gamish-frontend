@@ -12,7 +12,7 @@ function App() {
     <div>
       {page === "Home" && <Home setPage = {setPage} user = {user} setUser = {setUser}/>}
       {page === "Login" && <Login setPage = {setPage} setUser = {setUser}/>} 
-      {page === "CreateNewUser" && <CreateNewUser setPage = {setPage}/>}
+      {page === "CreateNewUser" && <CreateNewUser setPage = {setPage} setUser = {setUser}/>}
     </div>
   );
 }

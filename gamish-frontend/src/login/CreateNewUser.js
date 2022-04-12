@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { gamishApi } from "../api/gamish_api";
 
-function CreateNewUser() {
+function CreateNewUser({setPage, setUser}) {
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
@@ -30,6 +30,8 @@ function CreateNewUser() {
         if(username !== '' && password !== '') {
             const response = await gamishApi.post('/CreateUser', data)
             //console.log(response)
+            setUser(response.data)
+            setPage('Home')
         }else{
             alert('Por favor, preencha os campos solicitados!')
         }
