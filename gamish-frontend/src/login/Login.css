@@ -3,7 +3,6 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     text-decoration: none;
 }
 
@@ -16,9 +15,10 @@
 .pgLogin {
     font-family: 'Varela Round', sans-serif;
     text-transform: uppercase;
-    background-image: linear-gradient(190deg, #205E7A , #0E2936 );
+    background-color: #224A6B;
     height: 100vh;
     overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 .container {
@@ -26,7 +26,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 50px;
+    /*padding: 50px;*/
 }
 
 .login {
@@ -55,5 +55,22 @@
 
 .btnLogin:hover {
     box-shadow: 0 0 1em #000;
+    cursor: pointer;
+}
+
+span {
+    position: absolute;
+    top: 87%;
+    left: 40%;
+    text-transform: none;
+}
+
+button {
+    border: none;
+    outline: none;
+    background-color: #224A6B;
+}
+
+button:hover {
     cursor: pointer;
 }

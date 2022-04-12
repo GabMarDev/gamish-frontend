@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import "./Login.css"
 import { gamishApi } from "../api/gamish_api"
+import "./CreateNewUser"
 
 function Login({setPage, setUser}) {
 
@@ -9,6 +10,10 @@ function Login({setPage, setUser}) {
 
     function HandlePageToHome() {
         setPage('Home')
+    }
+
+    function HandleToCreate() {
+        setPage('CreateNewUser')
     }
 
     function HandleUsername(event) {
@@ -26,8 +31,10 @@ function Login({setPage, setUser}) {
         }
         await gamishApi.post('/Login', loginObject).then(
             (response) => {
-                setUser(response.data) // Retorna, ID, username e status
-                setPage('Home')
+                if (response.data.id !== null) {
+                    setUser(response.data) // Retorna, ID, username e status
+                    setPage('Home')
+                }
             }
         )
         .catch(
@@ -47,6 +54,7 @@ function Login({setPage, setUser}) {
                 <label className="login" name="Senha">Senha</label>
                 <input type="password" className="campo" placeholder="Senha" onChange={HandlePassword}/>
                 <input type="button" className="btnLogin" value="Login" onClick={HandleLogin}/>
+                <span>Ainda não é usuário ? <button onClick={HandleToCreate}>Clique aqui!</button></span>
             </div>
         </div>
     )
