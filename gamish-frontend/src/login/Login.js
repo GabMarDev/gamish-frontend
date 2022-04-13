@@ -54,7 +54,7 @@ function Login({setPage, setUser}) {
                 <label className="login" name="Senha">Senha</label>
                 <input type="password" className="campo" placeholder="Senha" onChange={HandlePassword}/>
                 <input type="button" className="btnLogin" value="Login" onClick={HandleLogin}/>
-                <span>Ainda não é usuário ? <button onClick={HandleToCreate}>Clique aqui!</button></span>
+                <span>Ainda não é usuário ? <input type="button" className="toCreateLogin" value="Clique aqui!" onClick={HandleToCreate}></input></span>
             </div>
         </div>
     )

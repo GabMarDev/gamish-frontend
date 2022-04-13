@@ -65,12 +65,15 @@ span {
     text-transform: none;
 }
 
-button {
+.toCreateLogin {
     border: none;
     outline: none;
     background-color: #224A6B;
+    font-size: 15px;
+    font-weight: bold;
 }
 
-button:hover {
+.toCreateLogin:hover {
     cursor: pointer;
+    color: red;
 }
