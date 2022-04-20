@@ -4,21 +4,34 @@
     margin: 0;
     padding: 0;
     text-decoration: none;
-}
-
-.btnVoltar {
-    border-radius: 5px;
-    font-weight: 400;
-    width: 50px;
+    font-family: varela-round, sans-serif;
 }
 
 .pgLogin {
-    font-family: 'Varela Round', sans-serif;
-    text-transform: uppercase;
-    background-color: #224A6B;
     height: 100vh;
-    overflow-y: hidden;
-    overflow-x: hidden;
+    width: 100vw;
+    background-image: url("../img/telaDeLogin.jpeg");
+}
+
+#loginName {
+    text-transform: uppercase;
+    font-size: 25px;
+    font-weight: bold;
+    color: #3EDFFA;
+    text-shadow: 1px 1px 1px #BA85FF;
+}
+
+.btnVoltar {
+    border-radius: 10px;
+    width: 5rem;
+    background-color: #3EDFFA;
+}
+
+.btnVoltar:hover {
+    cursor: pointer;
+    background-color: #3EDFFA;
+    border-radius: 10px;
+    width: 5rem;
 }
 
 .container {
@@ -26,54 +39,78 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    /*padding: 50px;*/
+    margin: 200px;
+    position: relative;
+    right: 30px;
 }
 
-.login {
-   padding: 30px;
-   font-size: 25px;
-   margin-top: 15px;
-}
-
-.campo {
-    width: 200px;
-    height: 25px;
-    border-radius: 5px;
+.container .loginUsername {
+    margin: 10px;
+    padding: 10px;
     border: none;
-    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    color: #3EDFFA;
+    font-weight: bold;
+}
+
+.container .loginPassword {
+    margin: 10px;
+    padding: 10px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    color: #3EDFFA;
+    font-weight: bold;
+}
+
+.loginPassword {
+    width: 18vw;
+}
+
+.input {
+    border-radius: 5px;
+    margin-left: 5px;
+    border: none;
+    background-color: #dfb7f0;
+}
+
+.notUser {
+    margin: 10px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #DA85FF;
 }
 
 .btnLogin {
-    margin-top: 50px;
-    text-transform: uppercase;
     width: 200px;
-    height: 25px;
+    height: 30px;
+    margin-top: 10px;
     border-radius: 5px;
-    background-color: #7DD7F5;
-    font-weight: bold;
+    font-size: 15px;
+    text-transform: uppercase;
+    background-color: #3EDFFA;
 }
 
 .btnLogin:hover {
-    box-shadow: 0 0 1em #000;
+    font-weight: bold;
+    color: #f7f45e;
+    background-color: rgb(139, 153, 231);
     cursor: pointer;
-}
-
-span {
-    position: absolute;
-    top: 87%;
-    left: 40%;
-    text-transform: none;
-}
+    box-shadow: 10px 5px 5px lightblue;
+} 
 
 .toCreateLogin {
+    background-color: transparent;
     border: none;
-    outline: none;
-    background-color: #224A6B;
-    font-size: 15px;
-    font-weight: bold;
 }
 
 .toCreateLogin:hover {
-    cursor: pointer;
+    font-weight: bold;
     color: red;
+    cursor: pointer;
 }

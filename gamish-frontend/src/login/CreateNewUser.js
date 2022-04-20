@@ -1,11 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { gamishApi } from "../api/gamish_api";
 
 function CreateNewUser({setPage, setUser}) {
 
+    const [canCreate, setCreate] = useState(false)
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [email, setEmail] = useState('')
+
+    useEffect(() => {
+
+        const verifyLogin = async () => {
+            await gamishApi.get(`/VerifyUser?login=${username}`).then(
+                (response) => {
+                    if(response.data.status=== "Ok" && username.length >=5)  setCreate(true)
+                    else setCreate(false)
+                }
+            )
+        }
+
+        verifyLogin();
+    }, [username])
 
     function HandleUsername(event) {
         setUsername(event.target.value)
@@ -29,7 +44,6 @@ function CreateNewUser({setPage, setUser}) {
 
         if(username !== '' && password !== '') {
             const response = await gamishApi.post('/CreateUser', data)
-            //console.log(response)
             setUser(response.data)
             setPage('Home')
         }else{
@@ -47,7 +61,7 @@ function CreateNewUser({setPage, setUser}) {
                     <input type="password" placeholder="*Senha" onChange={HandlePassword}></input>
                     <label>E-mail:</label>
                     <input type="email" placeholder="E-mail" onChange={HandleEmail}></input>
-                    <button type="submit">Criar</button>
+                    <button type="submit" disabled={!canCreate}>Criar</button>
                 </form>
             </div>
         </div>

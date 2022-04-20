@@ -47,15 +47,19 @@ function Login({setPage, setUser}) {
     return(
         <div className="pgLogin">
             <input type="button" value="Voltar" onClick={HandlePageToHome} className="btnVoltar"/>
-            <div className="container">
-            <h1>Login</h1>
-                <label className="login" name="Usuario">Usuário</label>
-                <input type="text" className="campo" placeholder="Usuário" onChange={HandleUsername}/> 
-                <label className="login" name="Senha">Senha</label>
-                <input type="password" className="campo" placeholder="Senha" onChange={HandlePassword}/>
+            <section className="container">
+            <h1 id="loginName">Login</h1>
+            <fieldset className="loginUsername">
+                <label name="Usuario">Usuário </label>
+                <input type="text" className="input"  placeholder="Usuário" onChange={HandleUsername}/> 
+            </fieldset>
+            <fieldset className="loginPassword">
+                <label name="Senha">Senha </label>
+                <input type="password" className="input" placeholder="Senha" onChange={HandlePassword}/>
+            </fieldset>
                 <input type="button" className="btnLogin" value="Login" onClick={HandleLogin}/>
-                <span>Ainda não é usuário ? <input type="button" className="toCreateLogin" value="Clique aqui!" onClick={HandleToCreate}></input></span>
-            </div>
+                <p className="notUser">Ainda não é usuário ? <input type="button" className="toCreateLogin" value=" Clique aqui!" onClick={HandleToCreate}></input></p>
+            </section>
         </div>
     )
 }
