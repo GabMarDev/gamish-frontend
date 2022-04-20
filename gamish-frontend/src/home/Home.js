@@ -15,7 +15,6 @@ function Home({setPage, user, setUser}) {
     return (
         <div id="main">
             <header>
-            <img className="logo" src={logo2}/>
             {Object.keys(user).length !== 0 && <span className="">Olá, {user.username}</span>}
             {Object.keys(user).length !== 0 && <input type="button" className="" id="btnLogoff" onClick={HandleLogoff} value="Deslogar"></input>}
             <ul className="nav">

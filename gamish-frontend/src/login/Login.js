@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import "./Login.css"
 import { gamishApi } from "../api/gamish_api"
 import "./CreateNewUser"
+import { FaFacebook, FaInstagram, FaYoutube, FaTwitter } from "react-icons/fa"
 
 function Login({setPage, setUser}) {
 
@@ -59,6 +60,12 @@ function Login({setPage, setUser}) {
             </fieldset>
                 <input type="button" className="btnLogin" value="Login" onClick={HandleLogin}/>
                 <p className="notUser">Ainda não é usuário ? <input type="button" className="toCreateLogin" value=" Clique aqui!" onClick={HandleToCreate}></input></p>
+                <div className="socialMedia">
+                    <a href="#"className="socialMediaFace"><FaFacebook /></a>
+                    <a href="#" className="socialMediaInsta"><FaInstagram /></a>
+                    <a href="#" className="socialMediaYtb"><FaYoutube /></a>
+                    <a href="#" className="socialMediaTw"><FaTwitter /></a>
+                </div>
             </section>
         </div>
     )

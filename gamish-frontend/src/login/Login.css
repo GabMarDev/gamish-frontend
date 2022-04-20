@@ -114,3 +114,31 @@
     color: red;
     cursor: pointer;
 }
+
+.socialMedia {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    font-size: 22px;
+}
+
+.socialMediaFace {
+    margin: 5px;
+}
+
+.socialMediaInsta {
+    margin: 5px;
+}
+
+.socialMediaYtb {
+    margin: 5px;
+}
+
+.socialMediaTw {
+    margin: 5px;
+}
+
+.socialMedia a:hover {
+    cursor: pointer;
+}
